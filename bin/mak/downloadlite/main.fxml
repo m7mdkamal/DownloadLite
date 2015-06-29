@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mak.downloadlite.FilesController">
+   <left>
+      <FlowPane prefHeight="473.0" prefWidth="75.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnNew" mnemonicParsing="false" onAction="#handleNew" prefHeight="60.0" prefWidth="60.0" style="-: 0;">
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </FlowPane.margin>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/1415781499_circle_add_plus-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnResume" mnemonicParsing="false" onAction="#handleResume" prefHeight="60.0" prefWidth="60.0" style="-: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/1415781294_audio-video-outline-play-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button fx:id="btnPause" mnemonicParsing="false" onAction="#handlePause" prefHeight="60.0" prefWidth="60.0" style="-: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/1415781516_audio-video-outline-pause-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button fx:id="btnStop" mnemonicParsing="false" onAction="#handleStop" prefHeight="60.0" prefWidth="60.0" style="-: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/1415781523_audio-video-outline-stop-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button disable="true" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-: 0;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/1415781509_circle_close_delete-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
+   </left>
+   <center>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView id="tableDownloads" fx:id="tableDownloads" layoutX="189.0" layoutY="32.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+                      <TableColumn fx:id="colStatus" prefWidth="75.0" text="State" />
+                        <TableColumn fx:id="colProgress" prefWidth="138.0" text="Progress" />
+                        <TableColumn fx:id="colSize" prefWidth="67.0" text="Size" />
+                        <TableColumn fx:id="colURL" prefWidth="169.0" text="URL" />
+                        <TableColumn fx:id="colDirectory" prefWidth="259.0" text="Directory" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="746.0">
+                                 <children>
+                                    <Label text="Name">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Status" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Size" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="URL" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Directory" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <ProgressBar fx:id="infoProgress" cacheHint="SPEED" prefHeight="20.0" prefWidth="624.0" progress="0.45" snapToPixel="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="Progress" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Downloaded" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="infoName" GridPane.columnIndex="1" />
+                                    <Label fx:id="infoState" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="infoSize" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="infoDownloaded" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label fx:id="infoURL" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label fx:id="infoDir" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="129.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="649.0" minWidth="10.0" prefWidth="617.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <left>
+            <Label contentDisplay="CENTER" graphicTextGap="5.0" nodeOrientation="LEFT_TO_RIGHT" text="DownloadLite" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#807474" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </Label>
+         </left>
+         <right>
+            <Label prefHeight="46.0" text="BETA" textAlignment="RIGHT" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#545252" />
+                        <Stop color="#111111" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <BorderPane.margin>
+                  <Insets right="20.0" />
+               </BorderPane.margin>
+            </Label>
+         </right>
+      </BorderPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="25.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+      <AnchorPane prefWidth="5.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
